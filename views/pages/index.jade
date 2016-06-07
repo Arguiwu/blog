@@ -1,4 +1,28 @@
 extends ../layout
 
 block content
-	
+	.main
+		.container
+			.row.index
+				.col-sm-10.col-sm-offset-1.col-lg-9.col-lg-offset-1_5
+					div
+						section.category-slice(post-cate="All")
+							each article in articles
+								article
+									header
+										a(href="#{article.url}")
+											span.octicon.octicon-calendar &nbsp;
+											span #{moment(article.date).format('YYYY-MM-DD')}
+									.module
+										a.title(href="#{article.url}") #{article.title}
+										p #{article.summary}
+										a.readmore(href="#{article.url}") 详情
+										footer
+											each tag in JSON.parse(article.tag)
+												a.word-keep(href="#{article.url}")
+													span.octicon.octicon-tag  &nbsp;#{tag}
+											span.word-keep.pull-right
+												a(href="#{article.url}")
+													span.octicon.octicon-comment &nbsp;评论
+												a(href="#{article.url}")
+													span.octicon.octicon-file-symlink-file &nbsp;分享
