@@ -1,0 +1,47 @@
+module.exports = function(grunt){
+	grunt.initConfig({
+		watch:{
+			jade:{
+				files:['views/**'],
+				options:{
+					livereload:true
+				}
+			},
+			js:{
+				files:['public/js/**','models/**/*.js','schemas/**/*.js'],
+				tasks:['jshint'],
+				options:{
+					livereload:true
+				}
+			}
+		},
+		nodemon:{
+			dev:{
+				options:{
+					file:'app.js',
+					args[],
+					ignoredFiles:['README.md','node_modules/**','.DS_Store'],
+					watchedExtension:['js'],
+					watchedFolders:['app','config'],
+					debug:true,
+					delayTime:1,
+					env:{
+						PORT:3000
+					},
+					cwd:_dirname
+				}
+			}
+		},
+		concurrent:{
+			tasks:['nodemon','watch'],
+			options:{
+				logConcurrentOutput:true
+			}
+		}
+	});
+	grunt.loadNpmTasks('grunt-contrib-watch');    //如果有文件添加、修改删除，将自动执行里面的任务
+	grunt.loadNpmTasks('grunt-nodemon');	    //入口文件改变 自动重启服务器
+	grunt.loadNpmTasks('grunt-concurrent');
+	grunt.option('force',true);
+	grunt.registerTask('default',['concurrent']);
+}
