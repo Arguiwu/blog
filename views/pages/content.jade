@@ -1,0 +1,64 @@
+extends ../layout
+
+block content
+	.main
+		.container
+			.row
+				.content.col-lg-9
+					.sheet.post
+						if article
+							header
+								h2 #{article.title}
+								p.post-meta
+									span.octicon.octicon-clock &nbsp;
+									span !{moment(article.date).format('YYYY-MM-DD')}
+								p.post-tag
+									span
+										each tag in JSON.parse(article.tag)
+											a(href="#")
+												span.octicon.octicon-tag &nbsp;#{tag}
+											span &nbsp;
+							hr.boundary
+							article !{article.comtent}
+							hr.boundary
+							#post-share.bdsharebuttonbox
+								a.bds_more(href="#",data-cmd="more")
+								a.bds_tsina(href="#",data-cmd="tsina",title="分享到新浪微博")
+								a.bds_weixin(href="#",data-cmd="weixin",title="分享到微信")
+								a.bds_douban(href="#",data-cmd="douban",title="分享到豆瓣网")
+								a.bds_fbook(href="#",data-cmd="fbook",title="分享到Facebook")
+								a.bds_copy(href="#",data-cmd="copy",title="分享到复制网址")
+						else
+							h2 没有找到相关内容
+				.content-navigation.col-lg-3
+					.shadow-bottom-center
+						.content-navigation-toc
+							.content-navigation-header
+								span.octicon.octicon-list-unordered &nbsp;Toc
+							.content-navigation-list.toc
+								ul#markdown-toc
+									li
+										a#markdown-toc-section1(href="#section1") 词法作用域
+									li
+										a#markdown-toc-section2(href="#section2") 词法作用域
+									li
+										a#markdown-toc-section3(href="#section3") 词法作用域
+						.content-navigation-tag
+							.content-navigation-header
+								span.octicon.octicon-list-unordered &nbsp;Tags
+							.content-navigation-list
+								ul
+									li
+										a(href="#")
+											span.octicon.octicon-tag &nbsp;lisp
+									li
+										a(href="#")
+											span.octicon.octicon-tag &nbsp;lisp
+									li
+										a(href="#")
+											span.octicon.octicon-tag &nbsp;lisp
+						.content-navigation-related
+							.content-navigation-header
+								span.octicon.octicon-list-unordered &nbsp;Related
+							.content-navigation-list
+								ul

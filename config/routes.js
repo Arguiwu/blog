@@ -16,6 +16,22 @@ module.exports = function(app){
 			}
 		});
 	});
+	app.get('/article/*/:id',function(req,res){
+		var model = new dao.dao();
+		var id = req.params.id;
+		model.findOne(id,function(result){
+			if(result.status == "success"){
+				res.render('content',{
+					title:'文章列表',
+					article:result.content[0]
+				})
+			}else{
+				res.render('index',{
+					title:'错误页面'
+				})
+			}
+		});
+	});
 	//分类
 	app.get('/category',function(req,res){
 		res.render('index',{

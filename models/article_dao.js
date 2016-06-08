@@ -1,18 +1,49 @@
 var dataModel = require('../config/db.js');
 var Article = require('./article.js').article;
-article = new dataModel({
+articleModel = new dataModel({
 	tableName:"articles"
 });
 function article_dao(){
+	var articles = {
+		status:"success",
+		code:200,
+		content:[]
+	};
 	this.list = function(callback){
-		var articles = {
-			status:"success",
-			code:200,
-			content:[]
-		};
-		article.find("all",function(err,rows,fields){
+		articleModel.find("all",function(err,rows,fields){
 			if(err) throw err;
-			articles.content = rows;
+			for(var i = 0;i<rows.length;i++){
+				var article = new Article(
+					rows[i].id,
+					rows[i].title,
+					rows[i].url,
+					rows[i].content,
+					rows[i].tag,
+					rows[i].date,
+					rows[i].share,
+					rows[i].summary
+				);
+				articles.content.push(article);
+			}
+			callback(articles);
+		});
+	}
+	this.findOne = function(id,callback){
+		articleModel.find("all",{where:"id="+id},function(err,rows,fields){
+			if(err) throw err;
+			for(var i = 0;i<rows.length;i++){
+				var article = new Article(
+					rows[i].id,
+					rows[i].title,
+					rows[i].url,
+					rows[i].content,
+					rows[i].tag,
+					rows[i].date,
+					rows[i].share,
+					rows[i].summary
+				);
+				articles.content.push(article);
+			}
 			callback(articles);
 		});
 	}
