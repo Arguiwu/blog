@@ -20,9 +20,9 @@ block content
 										footer
 											each tag in JSON.parse(article.tag)
 												a.word-keep(href="#{article.url}")
-													span.octicon.octicon-tag  &nbsp;#{tag}
+													span.octicon.octicon-tag #{tag}
 											span.word-keep.pull-right
 												a(href="#{article.url}")
-													span.octicon.octicon-comment &nbsp;评论
+													span.octicon.octicon-comment  评论
 												a(href="#{article.url}")
-													span.octicon.octicon-file-symlink-file &nbsp;分享
+													span.octicon.octicon-file-symlink-file  分享

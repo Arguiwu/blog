@@ -1,53 +1,17 @@
-var dao = require('../models/article_dao.js');
+var Index = require('../app/controllers/index');
+var Article = require('../app/controllers/article');
+var Category = require('../app/controllers/category');
+var Archive = require('../app/controllers/archive');
+var Tag = require('../app/controllers/tag');
 module.exports = function(app){
 	//首页
-	app.get('/',function(req,res){
-		var model = new dao.dao();
-		model.list(function(result){
-			if(result.status == "success"){
-				res.render('index',{
-					title:'文章列表',
-					articles:result.content
-				})
-			}else{
-				res.render('index',{
-					title:'错误页面'
-				})
-			}
-		});
-	});
-	app.get('/article/*/:id',function(req,res){
-		var model = new dao.dao();
-		var id = req.params.id;
-		model.findOne(id,function(result){
-			if(result.status == "success"){
-				res.render('content',{
-					title:'文章列表',
-					article:result.content[0]
-				})
-			}else{
-				res.render('index',{
-					title:'错误页面'
-				})
-			}
-		});
-	});
+	app.get('/',Index.index);
+	//文章详情
+	app.get('/article/*/:id',Article.detail);
 	//分类
-	app.get('/category',function(req,res){
-		res.render('index',{
-			title:'分类列表'
-		})
-	});
+	app.get('/category',Category.list);
 	//档案
-	app.get('/archive',function(req,res){
-		res.render('index',{
-			title:'档案'
-		})
-	});
+	app.get('/archive',Archive.list);
 	//标签
-	app.get('/tag',function(req,res){
-		res.render('index',{
-			title:'标签'
-		})
-	});
+	app.get('/tag',Tag.list);
 }

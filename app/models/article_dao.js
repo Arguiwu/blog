@@ -1,5 +1,5 @@
-var dataModel = require('../config/db.js');
-var Article = require('./article.js').article;
+var dataModel = require('../../config/db.js');
+var Article = require('../schemas/article.js').article;
 articleModel = new dataModel({
 	tableName:"articles"
 });
