@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+	.main
+		.container
+			.row.index
+				.col-sm-10.col-sm-offset-1.col-lg-9.col-lg-offset-1_5
+					.dropdown
+						button#categoryList.btn.btn-default.dropdown-toggle(type="button",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false")
+							span.octicon.octicon-list-unordered &nbsp;类别
+							span.caret
+						ul.dropdown-menu(aria-labelledby="categoryList")
+							li
+								a.categories-item(href="javascript:;",cate="All") All&nbsp;
+									span.categories-badge #{categorys.count}
+							each category in categorys.content
+								li
+									a.categories-item(href="javascript:;" cate="#{category.id}") #{category.name}&nbsp;
+										span.categories-badge #{category.count}
+					div
+						section#mainBox.category-slice
+							each article in categorys.articles
+								article(post-cate="#{article.category}")
+									header
+										a(href="#{article.url}")
+											span.octicon.octicon-calendar &nbsp;
+											span #{moment(article.date).format('YYYY-MM-DD')}
+									.module
+										a.title(href="#{article.url}") #{article.title}
+										p #{article.summary}
+										a.readmore(href="#{article.url}") 详情

@@ -1,6 +1,26 @@
 $(function(){
 	backToTop();
+	categoryChange();
 });
+function categoryChange(){
+	var lists = $("#categoryList").next().find("li");
+	$(lists).each(function(i,d){
+		$(d).on("click",function(){
+			var cate = $(this).find("a").attr("cate");
+			if(cate==="All"){
+				$("#mainBox article").show();
+			}else{
+				$("#mainBox article").each(function(i,d){
+					if($(d).attr("post-cate") !==cate ){
+						$(d).hide();
+					}else{
+						$(d).show();
+					}
+				});
+			}
+		});
+	});
+};
 function backToTop(){
 	$("[data-toggle='tooltip']").tooltip();
 	var st = $(".page-scrollTop");
