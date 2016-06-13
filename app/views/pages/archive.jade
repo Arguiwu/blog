@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+	.main
+		.container
+			.row
+				.sheet
+					header
+						h1 档案
+					hr.boundary
+					article
+						section#cd-timeline.cd-container
+							each article in articles
+								.cd-timeline-block(id="#{moment(article.date).format('YYYY-MM-DD')}")
+									.cd-timeline-img.cd-picture
+										img(src="/images/icon-picture.svg",alt="Picture")
+									.cd-timeline-content
+										a(href="#{article.url}")
+											h4 #{article.title}
+										span.cd-date #{moment(article.date).format('YYYY-MM-DD')}

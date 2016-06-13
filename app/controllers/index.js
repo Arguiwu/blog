@@ -6,7 +6,8 @@ exports.index = function(req,res){
 		if(result.status == "success"){
 			res.render('index',{
 				title:'月桂叶的博客',
-				articles:result.content
+				articles:result.content,
+				active:true
 			})
 		}else{
 			res.render('index',{

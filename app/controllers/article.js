@@ -6,7 +6,8 @@ exports.list = function(req,res){
 		if(result.status == "success"){
 			res.render('index',{
 				title:'文章列表',
-				articles:result.content
+				articles:result.content,
+				active:true
 			})
 		}else{
 			res.render('index',{

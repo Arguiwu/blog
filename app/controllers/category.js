@@ -6,7 +6,8 @@ exports.list = function(req,res){
 		if(result.status == "success"){
 			res.render('category',{
 				title:'分类列表',
-				categorys:result
+				categorys:result,
+				active:true
 			})
 		}else{
 			res.render('index',{
