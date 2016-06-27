@@ -19,7 +19,7 @@ block content
 										a.readmore(href="#{article.url}") 详情
 										footer
 											each tag in JSON.parse(article.tag)
-												a.word-keep(href="#{article.url}")
+												a.word-keep(href="/tag##{tag}")
 													span.octicon.octicon-tag #{tag}
 											span.word-keep.pull-right
 												a(href="#{article.url}")

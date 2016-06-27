@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+	.main
+		.container
+			.row
+				.content
+					.sheet
+						header
+							h1 标签
+						hr
+						article
+							div
+								ul.tag-box.inline
+									each tag in tags
+										li
+											a(href="##{tag.name}") #{tag.name}
+												span #{tag.count}
+							div
+								each tag in tags
+									h2(id="{tag.name}") #{tag.name}
+									ul
+										each article in articles
+											each tag1 in JSON.parse(article.tag)
+												if (tag1 == tag.name)
+													li(itemscope="")
+														span.entry-date
+															time(datetime="",itemprop="datePublished") #{moment(article.date).format('YYYY-MM-DD')}&nbsp;&raquo;&nbsp;
+														a(href="#{article.url}") #{article.title}
+							div.tagCloud
+								each tag in tags
+									a(href="##{tag.name}") #{tag.name}

@@ -1,8 +1,19 @@
-var dao = require('../models/article_dao.js');
+var dao = require('../models/tag_dao.js');
 //标签
 exports.list =  function(req,res){
-	res.render('index',{
-		title:'标签',
-		active:true
-	})
+	var model = new dao.dao();
+	model.list(function(result){
+		if(result.status == "success"){
+			res.render('tag',{
+				title:'标签',
+				articles:result.articles,
+				tags:result.content,
+				active:true
+			})
+		}else{
+			res.render('index',{
+				title:'错误页面'
+			})
+		}
+	});
 };
