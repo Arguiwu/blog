@@ -14,4 +14,10 @@ module.exports = function(app){
 	app.get('/archive',Archive.list);
 	//标签
 	app.get('/tag',Tag.list);
+	//后台
+	app.get('/admin/login',function(req,res){
+		res.render('login',{
+			title:'后台登录'
+		})
+	});
 }

@@ -1,0 +1,30 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<meta name="description" content="vinson" />
+link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
+link(href="/css/login.css",rel="stylesheet")
+.box
+	.login-box
+		.login-title.text-center
+			h1
+				small 后台登录
+		.login-content 
+			.form
+				form(action="#",method="POST")
+					.form-group
+						.col-xs-12
+							.input-group
+								span.input-group-addon
+									span.glyphicon.glyphicon-user
+								input#username.form-control(type="text",name="username",placeholder="用户名")
+					.form-group
+						.col-xs-12
+							.input-group
+								span.input-group-addon
+									span.glyphicon.glyphicon-lock
+								input#password.form-control(type="text",name="password",placeholder="密码")
+					.form-group.form-actions
+						.col-xs-4.col-xs-offset-4 
+							button.btn.btn-sm.btn-info(type="submit")
+								span.glyphicon.glyphicon-off  登录
