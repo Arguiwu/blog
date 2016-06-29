@@ -5,7 +5,7 @@
 link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
 link(href="/css/login.css",rel="stylesheet")
 .box
-	.login-box
+	.login-box#login-box
 		.login-title.text-center
 			h1
 				small 后台登录
@@ -24,7 +24,46 @@ link(href="/css/login.css",rel="stylesheet")
 								span.input-group-addon
 									span.glyphicon.glyphicon-lock
 								input#password.form-control(type="text",name="password",placeholder="密码")
-					.form-group.form-actions
-						.col-xs-4.col-xs-offset-4 
+					.form-group
+						.col-xs-4.col-xs-offset-4.form-button 
 							button.btn.btn-sm.btn-info(type="submit")
 								span.glyphicon.glyphicon-off  登录
+					.form-group
+						.col-xs-4.col-xs-offset-4.form-button
+							button#register.btn.btn-sm.btn-success(type="button")
+								span.glyphicon.glyphicon-off  注册
+	.register-box#register-box
+		.login-title.text-center
+			h1
+				small 注册
+		.login-content 
+			.form
+				form(action="#",method="POST")
+					.form-group
+						.col-xs-12
+							.input-group
+								span.input-group-addon
+									span.glyphicon.glyphicon-user
+								input#username.form-control(type="text",name="username",placeholder="输入用户名")
+					.form-group
+						.col-xs-12
+							.input-group
+								span.input-group-addon
+									span.glyphicon.glyphicon-lock
+								input#passone.form-control(type="text",name="passone",placeholder="输入密码")
+					.form-group
+						.col-xs-12
+							.input-group
+								span.input-group-addon
+									span.glyphicon.glyphicon-lock
+								input#passtwo.form-control(type="text",name="passtwo",placeholder="重复一次密码")
+					.form-group
+						.col-xs-4.col-xs-offset-4.form-button 
+							button.btn.btn-sm.btn-info(type="submit")
+								span.glyphicon.glyphicon-off  注册
+					.form-group
+						.col-xs-4.col-xs-offset-4.form-button
+							button#login.btn.btn-sm.btn-success(type="button")
+								span.glyphicon.glyphicon-off  登录
+script(src="/libs/jquery/dist/jquery-1.11.3.min.js")
+script(src="/js/login.js")

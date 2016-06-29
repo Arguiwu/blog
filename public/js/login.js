@@ -1,0 +1,12 @@
+$(function(){
+	$("#register").click(function(e){
+		e.preventDefault();
+		$("#login-box").hide();
+		$("#register-box").show();
+	});
+	$("#login").click(function(e){
+		e.preventDefault();
+		$("#login-box").show();
+		$("#register-box").hide();
+	});
+});

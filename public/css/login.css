@@ -246,12 +246,43 @@ a:link, a:visited, a:hover, a:active {
   max-width: 500px;
   height: 400px;
   position: absolute;
-  top: 50%;
+  top: -200px;
   margin-top: -200px;
+  animation: myLogin .4s linear;
+  -webkit-animation: myLogin .4s linear;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.register-box {
+  display: none;
+  width: 100%;
+  max-width: 500px;
+  height: 430px;
+  position: absolute;
+  top: -200px;
+  margin-top: -215px;
+  animation: myLogin .4s linear;
+  -webkit-animation: myLogin .4s linear;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.register-box .form {
+  height: 300px;
+}
+
+.register-box .login-content {
+  height: 370px;
 }
 
 @media screen and (min-width: 500px) {
   .login-box {
+    left: 50%;
+    margin-left: -250px;
+  }
+
+  .register-box {
     left: 50%;
     margin-left: -250px;
   }
@@ -306,4 +337,44 @@ a:link, a:visited, a:hover, a:active {
 .btn-sm {
   padding: 8px 24px !important;
   font-size: 16px !important;
+}
+
+.form-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@keyframes myLogin {
+  0% {
+    top: -200px;
+  }
+  25% {
+    top: -100px;
+  }
+  50% {
+    top: 0px;
+  }
+  75% {
+    top: 25%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+@-webkit-keyframes myLogin {
+  0% {
+    top: -200px;
+  }
+  25% {
+    top: -100px;
+  }
+  50% {
+    top: 0px;
+  }
+  75% {
+    top: 25%;
+  }
+  100% {
+    top: 50%;
+  }
 }
