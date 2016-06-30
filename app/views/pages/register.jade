@@ -1,0 +1,28 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<meta name="description" content="vinson" />
+link(href="/libs/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet")
+link(href="/css/login.css",rel="stylesheet")
+.login-container
+	h1 注册
+	.connect
+		p 个人页面后台
+	form#registerForm(action="",method="")
+		div
+			input#username(type="text",name="username",placeholder="输入用户名",autocomplete="off")
+		div
+			input#password(type="password",name="password",placeholder="输入密码",autocomplete="off",oncontextmenu="return false" onpaste="return false")
+		div
+			input#confirm_password(type="password",name="confirm_password",placeholder="再次输入密码",autocomplete="off",oncontextmenu="return false" onpaste="return false")
+		div
+			input#number(type="text",name="confirm_password",placeholder="输入手机号码",autocomplete="off")
+		div
+			input#email(type="email",name="email",placeholder="输入邮箱地址",autocomplete="off",onpaste="return false")
+		button#submit(type="submit") 注 册
+	a(href="/admin/login")
+		button.register-tis(type="button") 已经有账号？
+script(src="/libs/jquery/dist/jquery-1.11.3.min.js")
+script(src="/js/supersized.3.2.7.min.js")
+script(src="/js/jquery.validate.min.js")
+script(src="/js/login.js")
