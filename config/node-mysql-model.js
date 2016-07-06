@@ -85,6 +85,68 @@ var createConnection = function(options){
 					});
 					break;
 			}
+		},
+		save:function(where, callback){
+			if(typeof(where) == 'function'){
+				callback = where;
+				where = null;
+			}
+			if(this.tableName){
+				var tableName = this.tableName;
+			}else{
+				var tableName = this.attributes.tableName;
+			}
+			if(where){
+				var id = null;
+				if(this.has('id')){
+					id = this.get('id');
+					delete this.attributes.id;
+				}
+				var q = "UPDATE" + tableName + "SET" + connection.escape(this.attributes) + "WHERE" + where;
+				if(id){
+					this.set('id',id);
+				}
+				var check = "SELECT * FROM" + tableName + "WHERE" + where;
+				connection.query(check,function(err,result,fields){
+					if(result[0]){
+						conditions.query(q,function(err,result){
+							if(callback){
+								callback(err,result);
+							}
+						})
+					}else{
+						err="未找到记录";
+						callback(err, result);
+					}
+				})
+			}else{
+				if(this.has('id')){
+					var id = this.get('id');
+					delete this.attributes.id;
+					var q = "UPDATE "+tableName+" SET "+ connection.escape(this.attributes)+" WHERE id="+connection.escape(id);
+					this.set('id', id);
+					var check = "SELECT * FROM "+tableName+" WHERE id="+connection.escape(id);
+					connection.query(check,function(err,result,fields){
+						if(result[0]){
+							conditions.query(q,function(err,result){
+								if(callback){
+									callback(err,result);
+								}
+							})
+						}else{
+							err="未找到记录";
+							callback(err, result);
+						}
+					})
+				}else{
+					var q = "INSERT INTO "+tableName+" SET "+ connection.escape(this.attributes);
+					connection.query(q, function(err, result) {
+						if(callback){
+							callback(err, result);
+						}
+					});
+				}
+			}
 		}
 	});
 	return SQLModel;
