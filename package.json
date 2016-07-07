@@ -18,6 +18,8 @@
     "connect": "^3.4.1",
     "cookie-parser": "^1.4.1",
     "express-session": "^1.13.0",
+    "jssha": "^1.6.0",
+    "node-xml": "^1.0.2",
     "supervisor": "^0.9.1"
   },
   "scripts": {
