@@ -1,6 +1,6 @@
 var dataModel = require('../../config/db.js');
-var Category = require('../schemas/category.js').category;
-var Article = require('../schemas/article.js').article;
+var Category = require('../models/category.js').category;
+var Article = require('../models/article.js').article;
 articleModel = new dataModel({
 	tableName:"articles"
 });

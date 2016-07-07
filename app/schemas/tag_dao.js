@@ -1,6 +1,6 @@
 var dataModel = require('../../config/db.js');
 var article = require('./article_dao.js');
-var Tag = require('../schemas/tag.js').tag;
+var Tag = require('../models/tag.js').tag;
 tagModel = new dataModel({
 	tableName:"tags"
 });

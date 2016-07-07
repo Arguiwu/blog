@@ -1,4 +1,4 @@
-var dao = require('../models/category_dao.js');
+var dao = require('../schemas/category_dao.js');
 //分类
 exports.list = function(req,res){
 	var model = new dao.dao();

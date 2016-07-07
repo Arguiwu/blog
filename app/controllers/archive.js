@@ -1,4 +1,4 @@
-var dao = require('../models/article_dao.js');
+var dao = require('../schemas/article_dao.js');
 //档案
 exports.list = function(req,res){
 	var model = new dao.dao();

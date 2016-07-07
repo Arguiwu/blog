@@ -1,4 +1,4 @@
-var dao = require('../models/tag_dao.js');
+var dao = require('../schemas/tag_dao.js');
 //标签
 exports.list =  function(req,res){
 	var model = new dao.dao();
