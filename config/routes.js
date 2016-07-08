@@ -2,6 +2,7 @@ var Index = require('../app/controllers/index');
 var Article = require('../app/controllers/article');
 var Category = require('../app/controllers/category');
 var Archive = require('../app/controllers/archive');
+var User = require('../app/controllers/user');
 var Tag = require('../app/controllers/tag');
 var jsSHA = require('jssha');
 var xml=require('node-xml');
@@ -28,6 +29,11 @@ module.exports = function(app){
 			title:'后台注册'
 		})
 	});
+	//添加人员
+	app.post('/admin/user/signin',User.signin);
+
+
+
 	//微信开发接口  修改成自己的监听
 	app.get('/weixin',function(req,res){
 		var token = 'weixin',     //  改成自己在微信公众号的token 切记

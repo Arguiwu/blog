@@ -1,5 +1,6 @@
 var _ = require('underscore')._;	//backbone依赖
 var Backbone = require('backbone');	//model
+var uuid = require('node-uuid');  // 使用 uuid.v1(); 基于时间的  v4() (随机) id
 var mysql = require('mysql');  		//连接mysql
 
 var createConnection = function(options){
@@ -139,6 +140,7 @@ var createConnection = function(options){
 						}
 					})
 				}else{
+					this.attributes.id = uuid.v1();
 					var q = "INSERT INTO "+tableName+" SET "+ connection.escape(this.attributes);
 					connection.query(q, function(err, result) {
 						if(callback){

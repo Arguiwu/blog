@@ -5,6 +5,7 @@ var app = express();
 
 app.set('views','./app/views/pages');	// 设置模板相对路径(相对当前目录)
 app.set('view engine','jade');		// 设置模板引擎
+app.use(require('body-parser').urlencoded({extended: true}));	//处理表单
 
 if("development" === app.get("env")){
 	app.set("showStackError",true);
