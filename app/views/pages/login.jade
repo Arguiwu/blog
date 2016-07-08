@@ -8,11 +8,11 @@ link(href="/css/login.css",rel="stylesheet")
 	h1 登录
 	.connect
 		p 个人页面后台
-	form#loginForm(action="",method="")
+	form#loginForm(action="/admin/user/signup",method="POST")
 		div
-			input#username.username(type="text",name="username",placeholder="用户名",autocomplete="off")
+			input#username.username(type="text",name="user[name]",placeholder="用户名",autocomplete="off")
 		div
-			input#password.password(type="text",name="password",placeholder="密码",autocomplete="off",oncontextmenu="return false" onpaste="return false")
+			input#password.password(type="password",name="user[pass]",placeholder="密码",autocomplete="off",oncontextmenu="return false" onpaste="return false")
 		button#submit(type="submit") 登 录
 	a(href="/admin/register")
 		button.register-tis(type="button") 还有没有账号？

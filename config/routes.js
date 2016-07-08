@@ -18,19 +18,18 @@ module.exports = function(app){
 	//标签
 	app.get('/tag',Tag.list);
 	//后台登录
-	app.get('/admin/login',function(req,res){
-		res.render('login',{
-			title:'后台登录'
-		})
-	});
+	app.get('/admin/login',User.login);
 	//后台注册
-	app.get('/admin/register',function(req,res){
-		res.render('register',{
-			title:'后台注册'
-		})
-	});
-	//添加人员
+	app.get('/admin/register',User.register);
+	app.get('/admin/logout',User.logout);
+	//人员注册
 	app.post('/admin/user/signin',User.signin);
+	//人员登录
+	app.post('/admin/user/signup',User.signup);
+
+	//result  后台首页
+	app.get('/admin',User.signinRequired,User.adminRequired,User.showAdmin);
+	
 
 
 

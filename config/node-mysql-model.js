@@ -86,6 +86,7 @@ var createConnection = function(options){
 					});
 					break;
 			}
+			console.log(q)
 		},
 		save:function(where, callback){
 			if(typeof(where) == 'function'){
