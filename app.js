@@ -12,7 +12,7 @@ app.use(require('body-parser').urlencoded({extended: true}));	//处理表单
 
 //持久化session
 app.use(session({
-	secret:'imooc'
+	secret:'vinson_blog'
 }));
 
 if("development" === app.get("env")){
