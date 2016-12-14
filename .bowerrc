@@ -1,0 +1,6 @@
+{
+	"directory":"public/libs",
+	"dependencies": {
+		"bootstrap": "^3.3.5"
+	}
+}
