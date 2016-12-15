@@ -7,12 +7,20 @@ html{
 }
 body{
 	background-image: url(../images/bg.jpg);
-	height: 100%;
 	margin: 0;
 	padding: 0;
 }
+.flex-body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
 body,code,pre{
 	font-family: $main-font;
+}
+.main-content,
+header{
+	flex:1;
 }
 body,.sheet,pre,code{
 	font-size: 17px;
@@ -172,6 +180,7 @@ a:link,a:visited,a:hover,a:active{text-decoration: none}
 	display: inline-block;
 	width: 28px;
 	height: 28px;
+	margin-right:5px;
 	line-height: 28px;
 	font-size: 18px;
 	text-align: center;
