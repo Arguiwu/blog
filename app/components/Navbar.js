@@ -20,7 +20,7 @@ class Navbar extends React.Component {
 		this.setState(state);
 	}
 	handleLink(event) {
-		console.log(event.target)
+		NavbarActions.getPathname();
 	}
 	render() {
 		return (
