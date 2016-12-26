@@ -23,7 +23,7 @@ body, code, pre {
   font-family: "Menlo", "Monaco", "Consolas", "Courier New", "monospace", "Helvetica", "Tahoma", "Arial", "WenQuanYi Micro Hei", "STXihei", "华文细黑", "Microsoft YaHei", "微软雅黑", "SimSun", "宋体", "Heiti", "黑体", sans-serif; }
 
 .main-content,
-header {
+.main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1; }
