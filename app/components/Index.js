@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Tool from '../Tool';
 import IndexStore from '../stores/IndexStore';
 import IndexActions from '../actions/IndexActions';
 class Index extends React.Component {
@@ -20,17 +21,17 @@ class Index extends React.Component {
 	}
 	render() {
 		var articles = this.state.dataList.map((item, index) => 
-			<article key={index}>
+			<article key={item.id}>
 				<header>
-					<Link to="#">
+					<Link to={ "/article/" + item.id }>
 						<span className="octicon octicon-calendar"></span>
-						<span>{item.create_at}</span>
+						<span>{Tool.formatDate(item.create_at)}</span>
 					</Link>
 				</header>
 				<div className="module">
-					<Link to="#" className="title">{item.title}</Link>
+					<Link to={ "/article/" + item.id } className="title">{item.title}</Link>
 					<p dangerouslySetInnerHTML={{__html: item.content}} />
-					<Link to="#" className="readmore">更多</Link>
+					<Link to={ "/article/" + item.id } className="readmore">详情</Link>
 					<footer>
 						<Link to="#" className="word-keep"><span className="octicon octicon-tag"></span> 标签一</Link>
 						<Link to="#" className="word-keep"><span className="octicon octicon-tag"></span> 标签二</Link>
