@@ -20,18 +20,18 @@ class Index extends React.Component {
 		this.setState(state);
 	}
 	render() {
-		var articles = this.state.dataList.map((item, index) => 
+		var articles = this.state.dataList.map((item, index) =>
 			<article key={item.id}>
 				<header>
-					<Link to={ "/article/" + item.id }>
+					<Link to={"/article/" + item.id}>
 						<span className="octicon octicon-calendar"></span>
 						<span>{Tool.formatDate(item.create_at)}</span>
 					</Link>
 				</header>
 				<div className="module">
-					<Link to={ "/article/" + item.id } className="title">{item.title}</Link>
-					<p dangerouslySetInnerHTML={{__html: item.content}} />
-					<Link to={ "/article/" + item.id } className="readmore">详情</Link>
+					<Link to={"/article/" + item.id} className="title">{item.title}</Link>
+					<p dangerouslySetInnerHTML={{ __html: item.content }} />
+					<Link to={"/article/" + item.id} className="readmore">详情</Link>
 					<footer>
 						<Link to="#" className="word-keep"><span className="octicon octicon-tag"></span> 标签一</Link>
 						<Link to="#" className="word-keep"><span className="octicon octicon-tag"></span> 标签二</Link>
